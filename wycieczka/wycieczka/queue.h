@@ -9,6 +9,14 @@ public:
 
 	queue() : head(NULL), last(NULL) {}
 
+	~queue() {
+		if (!empty()) {
+			node<T> *tmp = head;
+			head = head->next;
+			delete tmp;
+		}
+	}
+
 	bool empty() {
 		if (head == NULL) return 1;
 		else return 0;
@@ -34,13 +42,11 @@ public:
 		}
 	}
 
-	node<T>* pop() {
+	void pop() {
 		if (!empty()) {
 			node<T> *tmp = head;
 			head = head->next;
-			return tmp;
 		}
-		else return NULL;
 	}
 
 	T front() {

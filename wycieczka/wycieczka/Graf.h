@@ -1,4 +1,5 @@
 #pragma once
+
 class Rower {
 public:
 	int index;
@@ -11,16 +12,10 @@ public:
 	int index;
 	int odleglosc;
 	bool odwiedzony;
-	Rower **znane_rowery;
+	Rower *znane_rowery[45];
 	int liczba_rowerow;
 	int skojarzony_rower;
 	Osoba(int index) : odwiedzony(false), odleglosc(-1), skojarzony_rower(-1), index(index) {};
-	~Osoba() {
-		for (int i = 0; i < liczba_rowerow; i++) {
-			delete znane_rowery[i];
-		}
-		delete znane_rowery;
-	}
 };
 
 class Graf {
