@@ -16,6 +16,10 @@ public:
 	int liczba_rowerow;
 	int skojarzony_rower;
 	Osoba(int index) : odwiedzony(false), odleglosc(-1), skojarzony_rower(-1), index(index) {};
+	~Osoba() {
+		delete[] znane_rowery;
+		delete this;
+	}
 };
 
 class Graf {
@@ -30,10 +34,7 @@ public:
 	}
 
 	~Graf() {
-		for (int i = 0; i < liczba_osob; i++) {
-			delete osoby[i];
-		}
-		delete osoby;
+		delete[] osoby;
 	}
 
 	void ETAP_BFS() {

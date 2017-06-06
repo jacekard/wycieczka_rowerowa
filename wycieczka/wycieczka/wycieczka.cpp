@@ -5,7 +5,6 @@ using namespace std;
 
 Rower *Rowery[17400];
 
-
 int main() {
 
 	int osoby, rowery, index, liczba_rowerow;
@@ -17,7 +16,7 @@ int main() {
 	for (int i = 0; i < osoby; i++) 
 		graf->osoby[i] = new Osoba(i);
 
-	for (int i = 0; i < liczba_rowerow; i++)
+	for (int i = 0; i < liczba_rowerow; i++) 
 		Rowery[i] = new Rower(i);
 
 	for (int a = 0; a < osoby; a++) {
@@ -29,9 +28,13 @@ int main() {
 		}
 	}
 
-	cout << graf->maxDopasowanie() << endl;
+	cout << graf->maxDopasowanie() << '\n';
 
 	delete graf;
+
+	for (int i = 0; i < liczba_rowerow; i++) {
+		delete Rowery[i];
+	}
 
 	return 0;
 }

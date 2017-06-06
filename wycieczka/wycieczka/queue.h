@@ -46,6 +46,7 @@ public:
 		if (!empty()) {
 			node<T> *tmp = head;
 			head = head->next;
+			delete tmp;
 		}
 	}
 
